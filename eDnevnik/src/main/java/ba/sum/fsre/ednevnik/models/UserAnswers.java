@@ -24,12 +24,16 @@ public class UserAnswers {
     @ManyToOne
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
+    /*
     @ManyToOne
     @JoinColumn(name = "pitanja_id")
     private Pitanja pitanja;
     @ManyToOne
     @JoinColumn(name = "odgovori_id")
     private Odgovori odgovori;
+
+     */
+    private int TocnoOdgovoreno;
     private LocalDateTime OdgovorenoU;
 
 }

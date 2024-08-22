@@ -5,6 +5,8 @@ import ba.sum.fsre.ednevnik.repositories.OdgovoriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class OdgovoriServiceImp {
     @Autowired
@@ -12,5 +14,13 @@ public class OdgovoriServiceImp {
 
     public Odgovori saveOdgovori(Odgovori odgovori){
         return odgovoriRepository.save(odgovori);
+    }
+
+    public Optional<Odgovori> findById(Long id) {
+        return odgovoriRepository.findById(id);
+    }
+
+    public void save(Odgovori existingOdgovori) {
+        odgovoriRepository.save(existingOdgovori);
     }
 }

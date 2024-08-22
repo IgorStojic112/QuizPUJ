@@ -45,6 +45,9 @@ public class SecurityConfig{
                 .requestMatchers("/users/**").hasAuthority("ADMIN")
                 .requestMatchers("/teacher/**").hasAuthority("TEACHER")
                 .requestMatchers("/student/**").hasAnyAuthority("STUDENT")
+                .requestMatchers("/quiz/delete/**").hasAuthority("ADMIN")
+                .requestMatchers("/quiz/edit/**").hasAuthority("ADMIN")
+                .requestMatchers("/quiz/submitAnswers").authenticated()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -52,10 +55,11 @@ public class SecurityConfig{
                 .loginPage("/auth/login")
                 .permitAll()
                 .usernameParameter("email")
-                .defaultSuccessUrl("/users", true)
+                .defaultSuccessUrl("/home", true)
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
+
 
         http.authenticationProvider(authenticationProvider());
         http.headers().frameOptions().sameOrigin();

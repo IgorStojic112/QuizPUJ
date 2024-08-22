@@ -1,6 +1,7 @@
 package ba.sum.fsre.ednevnik.config;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -24,4 +25,5 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
             response.sendRedirect("/login");
         }
     }
+
 }
